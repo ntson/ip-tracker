@@ -15,7 +15,8 @@ body {
 }
 
 #map {
-  height: 100vh;
+  height: 65vh;
+  width: 100vw;
 }
 
 .header {
@@ -61,4 +62,13 @@ button {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 20px;
+}
+
+.error {
+  background-color: #db4437;
+  color: #eee;
+  border-radius: 10px;
+  border: transparent;
+  padding: 20px;
 }
