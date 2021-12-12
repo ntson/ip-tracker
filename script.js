@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 const token = process.env.MAP_BOX_ACCESS_TOKEN;
 const apiKey = process.env.IPIFY_API_KEY;
 
-const baseURL = `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=`;
+const baseURL = 'https://ipwhois.app/json/';
 
 mapboxgl.accessToken = token;
 
@@ -36,16 +36,16 @@ form.addEventListener('submit', function (e) {
     .then((res) => {
       return res.json();
     })
-    .then((data) => {
+    .then((location) => {
       map.flyTo({
-        center: [data.location.lng, data.location.lat],
+        center: [location.longitude, location.latitude],
         essential: true,
       });
 
       marker.remove();
 
       new mapboxgl.Marker()
-        .setLngLat([data.location.lng, data.location.lat])
+        .setLngLat([location.longitude, location.latitude])
         .addTo(map);
 
       const input = document.getElementById('ip');
